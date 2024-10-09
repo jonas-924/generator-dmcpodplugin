@@ -91,11 +91,11 @@ module.exports = class extends Generator {
 
   writing() {
     
-    this.fs.copyTpl(
-      this.templatePath('xs-security.json'),
-      this.destinationPath('xs-security.json'),
-      {xsappname: this.props.pluginName}
-    );
+    // this.fs.copyTpl(
+    //   this.templatePath('xs-security.json'),
+    //   this.destinationPath('xs-security.json'),
+    //   {xsappname: this.props.pluginName}
+    // );
     
   /*  this.fs.copyTpl(
       this.templatePath('package.json'),
