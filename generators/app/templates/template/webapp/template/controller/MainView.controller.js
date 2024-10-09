@@ -28,7 +28,7 @@ sap.ui.define([
 
 		onBeforeRenderingPlugin: function () {
             //subscribe to Events to update Plugin when Phase is changed
-            this.subscribe("PodSelectionChangeEvent", this.onUpdateUserInterface, this);
+            this.subscribe("phaseSelectionEvent", this.onUpdateUserInterface, this);
             this.subscribe("OperationListSelectEvent", this.onUpdateUserInterface, this);
             this.subscribe("WorklistSelectEvent", this.onUpdateUserInterface, this);
 			
