@@ -27,8 +27,10 @@ sap.ui.define([
         },
 
 		onBeforeRenderingPlugin: function () {
-
-			
+            //subscribe to Events to update Plugin when Phase is changed
+            this.subscribe("PodSelectionChangeEvent", this.onUpdateUserInterface, this);
+            this.subscribe("OperationListSelectEvent", this.onUpdateUserInterface, this);
+            this.subscribe("WorklistSelectEvent", this.onUpdateUserInterface, this);
 			
 		},
 
@@ -37,6 +39,11 @@ sap.ui.define([
             var bNotificationsEnabled = true;
            
             return bNotificationsEnabled;
+        },
+
+        onUpdateUserInterface: function() {
+            
+            //update Data here
         },
 
 
@@ -78,7 +85,9 @@ sap.ui.define([
 
 		onExit: function () {
 			PluginViewController.prototype.onExit.apply(this, arguments);
-
+            this.unsubscribe("PodSelectionChangeEvent", this.onPodSelectionChangeEvent, this);
+            this.unsubscribe("OperationListSelectEvent", this.onOperationChangeEvent, this);
+            this.unsubscribe("WorklistSelectEvent", this.onWorkListSelectEvent, this);
 
 		}
 	});
